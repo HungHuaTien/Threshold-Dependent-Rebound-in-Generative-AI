@@ -1,0 +1,11 @@
+SELECT
+  DATE_TRUNC(DATE(timestamp), WEEK(MONDAY)) as week,
+  file.project as package_name,
+  COUNT(*) as downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE
+  file.project IN ('numpy', 'requests', 'pandas')
+  AND DATE(timestamp) BETWEEN '2023-12-31' AND '2026-01-25'
+  AND details.installer.name = 'pip'
+GROUP BY week, package_name
+ORDER BY week, package_name

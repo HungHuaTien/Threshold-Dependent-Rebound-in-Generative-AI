@@ -1,0 +1,17 @@
+-- 查詢 openai, anthropic, langchain 三個套件
+SELECT
+  file.project AS package_name,
+  DATE_TRUNC(DATE(timestamp), WEEK) AS download_week,
+  COUNT(*) AS download_count
+FROM
+  `bigquery-public-data.pypi.file_downloads`
+WHERE
+  file.project IN ('openai', 'anthropic', 'langchain')
+  AND timestamp BETWEEN TIMESTAMP('2024-01-01') AND TIMESTAMP('2026-01-31')
+  AND details.installer.name = 'pip'
+GROUP BY
+  package_name,
+  download_week
+ORDER BY
+  package_name,
+  download_week;

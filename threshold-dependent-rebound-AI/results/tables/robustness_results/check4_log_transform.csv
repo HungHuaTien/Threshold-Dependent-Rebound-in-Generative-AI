@@ -1,0 +1,7 @@
+套件,事件,原始F統計量,原始p值,對數F統計量,對數p值,顯著性(p<0.05)
+openai,DeepSeek-R1,83.98,0.0000,1.66,0.1951,No
+openai,GPT-5,77.50,0.0000,5.91,0.0037,Yes
+anthropic,DeepSeek-R1,154.29,0.0000,20.17,0.0000,Yes
+anthropic,GPT-5,119.74,0.0000,17.91,0.0000,Yes
+langchain,DeepSeek-R1,19.94,0.0000,58.68,0.0000,Yes
+langchain,GPT-5,14.14,0.0000,60.91,0.0000,Yes
